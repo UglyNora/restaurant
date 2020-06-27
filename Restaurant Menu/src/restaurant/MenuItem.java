@@ -1,18 +1,23 @@
 package restaurant;
 
 
-public class MenuItem {
+import java.util.Arrays;
+import java.util.Date;
 
+public class MenuItem {
+    private String name;
     private String category;
     private String description;
     private double price;
     private boolean isNew;
+    private Date dateAdded;
 
-    public MenuItem(String category, String description, double price, boolean isNew) {
-       this.category = category;
-       this.description = description;
-       this.price = price;
-       this.isNew = false;
+    public MenuItem(String name,String category, String description, double price) {
+        this.name= name;
+        this.setCategory(category);
+        this.description = description;
+        this.price = price;
+
 
 
     }
@@ -33,12 +38,18 @@ public class MenuItem {
         this.description = description;
     }
 
-    public String getcategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setcategory(String category) {
-        category = category;
+    public void setCategory(String category) {
+
+        String [] availableCategory= {"appetizer", "main course", "dessert"};
+        if (Arrays.stream(availableCategory).anyMatch(category.toLowerCase()::equals)) {
+            this.category = category;
+        } else {
+            System.out.println("Invalid Category! Please provide a valid choice!" );
+        }
     }
 
     public boolean isNew() {
@@ -47,5 +58,25 @@ public class MenuItem {
 
     public void setNew(boolean aNew) {
         isNew = aNew;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "MenuItem{" +
+                "name='" + name + '\'' +
+                ", category='" + category + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", isNew=" + isNew +
+                ", dateAdded=" + dateAdded +
+                '}';
     }
 }
