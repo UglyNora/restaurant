@@ -42,6 +42,8 @@ public class MenuItem {
         return category;
     }
 
+
+
     public void setCategory(String category) {
 
         String [] availableCategory= {"appetizer", "main course", "dessert"};
@@ -50,6 +52,14 @@ public class MenuItem {
         } else {
             System.out.println("Invalid Category! Please provide a valid choice!" );
         }
+    }
+
+    public Date getDateAdded() {
+        return dateAdded;
+    }
+
+    public void setDateAdded(Date dateAdded) {
+        this.dateAdded = dateAdded;
     }
 
     public boolean isNew() {
@@ -79,4 +89,9 @@ public class MenuItem {
                 ", dateAdded=" + dateAdded +
                 '}';
     }
+
+
+
+
+
 }

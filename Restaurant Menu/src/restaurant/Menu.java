@@ -1,30 +1,46 @@
 package restaurant;
-
-
-import javax.print.attribute.standard.DateTimeAtProcessing;
-import java.time.format.DateTimeFormatter;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-
+import java.util.*;
 public class Menu {
-    public static void main(String args[]){
+    private ArrayList<MenuItem> items;
+    private Date dateAdded;
 
 
-
-    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm:ss");
-    LocalDateTime now = LocalDateTime.now();
-    System.out.println("Welcome to It Ain't No Good- Food Truck! " +
-            " Menu for : "+ dtf.format(now));
-
-    MenuItem menuItem = new MenuItem("Bob's Burger", "entree", "A big, beefy, cheesy delight", 29.99);
-    System.out.println(menuItem);
+    public Menu(ArrayList<MenuItem> aItems) {
+        items = new ArrayList<MenuItem>();
+        Date dateModified = new Date();
     }
 
 
+    public ArrayList<MenuItem> getItems() {
+        return items;
+    }
 
+    public void setItems(ArrayList<MenuItem> items) {
+        this.items = items;
+    }
 
+    public Date getDateAdded() {
+        return dateAdded;
+    }
 
+    public void setDateAdded(Date dateAdded) {
+        this.dateAdded = dateAdded;
+    }
 
+    public Menu() {
+        items = new ArrayList<MenuItem>();
+        Date dateModified = new Date();
+    }
 
+    public ArrayList<MenuItem> getMenus() {return items;}
 
+    public void setMenus(ArrayList<MenuItem>aItems) { items = aItems;}
+
+    public void addMenuItem(MenuItem aMenuItem) {items.add(aMenuItem);}
+
+    public void removeMenuItem(MenuItem aMenuItem) {
+        if (items.contains(aMenuItem)) {
+            items.remove(aMenuItem);
+        }
+    }
 }
